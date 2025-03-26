@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Gold and Diamonds</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Garamond', serif;
+            background: #222; /* Dark Grey Background */
+            color: white;
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            font-size: 45px;
+            font-weight: bold;
+            padding: 30px;
+            text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.8); /* Red Glow */
+            background: linear-gradient(to right, #7b0000, #b30000); /* Deep Red Gradient */
+            color: white;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            background: #b30000; /* Deep Red */
+            color: white;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 40px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        /* Product Grid */
+        .shop-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .product-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            color: white;
+            font-size: 20px;
+        }
+
+        .product-card p {
+            color: #b30000;
+            font-weight: bold;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart {
+            background: white;
+            color: #b30000;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #b30000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Shop | Gold and Diamonds</div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <input type="text" id="search-bar" placeholder="Search for jewelry..." onkeyup="searchProducts()" style="width: 80%; padding: 10px; font-size: 18px; margin: 20px auto; display: block;">
+
+    <script>
+    function searchProducts() {
+        let query = document.getElementById("search-bar").value.toLowerCase();
+        let products = document.querySelectorAll(".product-card");
+        
+        products.forEach(product => {
+            let name = product.querySelector("h3").innerText.toLowerCase();
+            if (name.includes(query)) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    }
+    </script>
+    
+    <!-- Gold Jewelry Section -->
+    <h2 class="section-title">Gold Jewelry</h2>
+    <div class="shop-container">
+        <div class="product-card">
+            <img src="gold_ring.jpg" alt="Gold Ring">
+            <h3>Elegant Gold Ring</h3>
+            <p>$999.99</p>
+            <button class="add-to-cart" onclick="addToCart('Elegant Gold Ring', 999.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gold_bracelet.jpg" alt="Gold Bracelet">
+            <h3>Luxury Gold Bracelet</h3>
+            <p>$799.99</p>
+            <button class="add-to-cart" onclick="addToCart('Luxury Gold Bracelet', 799.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="gold_watch.jpg" alt="Gold Watch">
+            <h3>Exclusive Gold Watch</h3>
+            <p>$2,999.99</p>
+            <button class="add-to-cart" onclick="addToCart('Exclusive Gold Watch', 2999.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="gold_ring2.jpg" alt="Gold Ring 2">
+            <h3>Classic Gold Ring</h3>
+            <p>$1,099.99</p>
+            <button class="add-to-cart" onclick="addToCart('Classic Gold Ring', 1099.99, 'ring')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="gold_bracelet2.jpg" alt="Gold Bracelet 2">
+            <h3>Royal Gold Bracelet</h3>
+            <p>$899.99</p>
+            <button class="add-to-cart" onclick="addToCart('Royal Gold Bracelet', 899.99)">Add to Cart</button>
+        </div>
+           
+    </div>
+
+    <!-- Diamond Jewelry Section -->
+    <h2 class="section-title">Diamond Jewelry</h2>
+    <div class="shop-container">
+        <div class="product-card">
+            <img src="diamond_necklace.jpg" alt="Diamond Necklace">
+            <h3>Exquisite Diamond Necklace</h3>
+            <p>$1,499.99</p>
+            <button class="add-to-cart" onclick="addToCart('Exquisite Diamond Necklace', 1499.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="diamond_earrings.jpg" alt="Diamond Earrings">
+            <h3>Brilliant Diamond Earrings</h3>
+            <p>$699.99</p>
+            <button class="add-to-cart" onclick="addToCart('Brilliant Diamond Earrings', 699.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="diamond_pendant.jpg" alt="Diamond Pendant">
+            <h3>Luxury Diamond Pendant</h3>
+            <p>$1,299.99</p>
+            <button class="add-to-cart" onclick="addToCart('Luxury Diamond Pendant', 1299.99)">Add to Cart</button>
+        </div>
+        <!-- First Row -->
+<div class="product-card">
+    <img src="diamond_ring2.jpg" alt="Diamond Ring">
+    <h3>Royal Diamond Ring</h3>
+    <p>$1,799.99</p>
+    <button class="add-to-cart" onclick="addToCart('Royal Diamond Ring', 1799.99, 'ring')">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_bracelet2.jpg" alt="Diamond Bracelet">
+    <h3>Elite Diamond Bracelet</h3>
+    <p>$999.99</p>
+    <button class="add-to-cart" onclick="addToCart('Elite Diamond Bracelet', 999.99)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_watch2.jpg" alt="Diamond Watch">
+    <h3>Premium Diamond Watch</h3>
+    <p>$3,499.99</p>
+    <button class="add-to-cart" onclick="addToCart('Premium Diamond Watch', 3499.99)">Add to Cart</button>
+</div>
+
+<!-- Second Row -->
+<div class="product-card">
+    <img src="diamond_necklace2.jpg" alt="Diamond Necklace">
+    <h3>Regal Diamond Necklace</h3>
+    <p>$1,799.99</p>
+    <button class="add-to-cart" onclick="addToCart('Regal Diamond Necklace', 1799.99)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_earrings2.jpg" alt="Diamond Earrings">
+    <h3>Radiant Diamond Earrings</h3>
+    <p>$799.99</p>
+    <button class="add-to-cart" onclick="addToCart('Radiant Diamond Earrings', 799.99)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_pendant2.jpg" alt="Diamond Pendant">
+    <h3>Classic Diamond Pendant</h3>
+    <p>$1,599.99</p>
+    <button class="add-to-cart" onclick="addToCart('Classic Diamond Pendant', 1599.99)">Add to Cart</button>
+</div>
+
+<!-- Third Row -->
+<div class="product-card">
+    <img src="diamond_ring3.jpg" alt="Diamond Ring">
+    <h3>Glorious Diamond Ring</h3>
+    <p>$2,199.99</p>
+    <button class="add-to-cart" onclick="addToCart('Glorious Diamond Ring', 2199.99, 'ring')">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_tiara.jpg" alt="Diamond Tiara">
+    <h3>Queen's Diamond Tiara</h3>
+    <p>$4,999.99</p>
+    <button class="add-to-cart" onclick="addToCart('Queen\'s Diamond Tiara', 4999.99)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_brooch.jpg" alt="Diamond Brooch">
+    <h3>Elegant Diamond Brooch</h3>
+    <p>$699.99</p>
+    <button class="add-to-cart" onclick="addToCart('Elegant Diamond Brooch', 699.99)">Add to Cart</button>
+</div>
+
+<div class="product-card">
+    <img src="diamond_cufflinks.jpg" alt="Diamond Cufflinks">
+    <h3>Luxury Diamond Cufflinks</h3>
+    <p>$1,299.99</p>
+    <button class="add-to-cart" onclick="addToCart('Luxury Diamond Cufflinks', 1299.99)">Add to Cart</button>
+</div>
+
+    </div>
+    <!-- Silver Jewelry Section -->
+<h2 class="section-title">Silver Jewelry</h2>
+<div class="shop-container">
+
+    <!-- First Row -->
+    <div class="product-card">
+        <img src="silver_ring.jpg" alt="Silver Ring">
+        <h3>Elegant Silver Ring</h3>
+        <p>$199.99</p>
+        <button class="add-to-cart" onclick="addToCart('Elegant Silver Ring', 199.99, 'ring')">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_bracelet.jpg" alt="Silver Bracelet">
+        <h3>Luxury Silver Bracelet</h3>
+        <p>$249.99</p>
+        <button class="add-to-cart" onclick="addToCart('Luxury Silver Bracelet', 249.99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_watch.jpg" alt="Silver Watch">
+        <h3>Exclusive Silver Watch</h3>
+        <p>$899.99</p>
+        <button class="add-to-cart" onclick="addToCart('Exclusive Silver Watch', 899.99)">Add to Cart</button>
+    </div>
+
+    <!-- Second Row -->
+    <div class="product-card">
+        <img src="silver_necklace.jpg" alt="Silver Necklace">
+        <h3>Exquisite Silver Necklace</h3>
+        <p>$349.99</p>
+        <button class="add-to-cart" onclick="addToCart('Exquisite Silver Necklace', 349.99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_earrings.jpg" alt="Silver Earrings">
+        <h3>Brilliant Silver Earrings</h3>
+        <p>$179.99</p>
+        <button class="add-to-cart" onclick="addToCart('Brilliant Silver Earrings', 179.99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_pendant.jpg" alt="Silver Pendant">
+        <h3>Luxury Silver Pendant</h3>
+        <p>$399.99</p>
+        <button class="add-to-cart" onclick="addToCart('Luxury Silver Pendant', 399.99)">Add to Cart</button>
+    </div>
+
+    <!-- Third Row -->
+    <div class="product-card">
+        <img src="silver_ring2.jpg" alt="Silver Ring">
+        <h3>Royal Silver Ring</h3>
+        <p>$259.99</p>
+        <button class="add-to-cart" onclick="addToCart('Royal Silver Ring', 259.99, 'ring')">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_brooch.jpg" alt="Silver Brooch">
+        <h3>Elegant Silver Brooch</h3>
+        <p>$299.99</p>
+        <button class="add-to-cart" onclick="addToCart('Elegant Silver Brooch', 299.99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_cufflinks.jpg" alt="Silver Cufflinks">
+        <h3>Luxury Silver Cufflinks</h3>
+        <p>$499.99</p>
+        <button class="add-to-cart" onclick="addToCart('Luxury Silver Cufflinks', 499.99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="silver_tiara.jpg" alt="Silver Tiara">
+        <h3>Queen's Silver Tiara</h3>
+        <p>$1,099.99</p>
+        <button class="add-to-cart" onclick="addToCart('Queen\'s Silver Tiara', 1099.99)">Add to Cart</button>
+    </div>
+
+</div>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: name, price: price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            window.location.href = "checkout.html"; // Redirects to Checkout Page
+        }
+        
+    </script>
+
+</body>
+</html>
